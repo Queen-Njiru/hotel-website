@@ -1,0 +1,383 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VibeLoft Hotel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<style>
+/* style.css */
+/* Variables */
+:root {
+  --primary-color: #c49b66;
+  --dark-bg: #111;
+  --light-bg: #f9f9f9;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Montserrat', sans-serif;
+  --transition: 0.3s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header & Hero */
+.site-header {
+  position: relative;
+  color: #fff;
+}
+
+.nav.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(0,0,0,0.6);
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+}
+
+.nav-menu li + li {
+  margin-left: 1.5rem;
+}
+
+.nav-menu a {
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+}
+
+.nav-menu a:hover {
+  color: var(--primary-color);
+}
+
+.mobile-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+}
+
+.hero {
+  height: 80vh;
+  background: url('../hotel/template.jpg') no-repeat center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Sections */
+.section {
+  padding: 4rem 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-family: var(--font-serif);
+  margin: 1rem 0 0.5rem;
+}
+
+.card p {
+  padding: 0 1rem 1.5rem;
+}
+
+/* Amenities */
+.bg-light {
+  background: var(--light-bg);
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.amenity .icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Testimonials */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial {
+  background: #fff;
+  padding: 2rem;
+  border-left: 4px solid var(--primary-color);
+  font-style: italic;
+}
+
+/* Booking */
+.bg-dark {
+  background: var(--dark-bg);
+  color: #fff;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.booking-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--dark-bg);
+  color: #bbb;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: block;
+  }
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    right: 2rem;
+    background: rgba(0,0,0,0.8);
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+  }
+  .nav-menu.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#" class="logo">VibeLoft Hotel</a>
+      <ul class="nav-menu">
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#booking">Book Now</a></li>
+      </ul>
+      <button class="mobile-toggle">&#9776;</button>
+    </nav>
+    <div class="hero">
+      <h1>Experience Unmatched Elegance</h1>
+      <p>Discover world-class luxury and impeccable service.</p>
+      <a href="#booking" class="btn-primary">Reserve Your Stay</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="rooms" class="section container">
+      <h2 class="section-title">Our Signature Rooms</h2>
+      <div class="grid rooms-grid">
+        <div class="card">
+          <img src="deluxe hotel .jpeg" alt="Amazing rooms">
+          <h3>Deluxe Room</h3>
+          <p>Spacious room with king-size bed, city view, and private balcony.</p>
+        </div>
+        <div class="card">
+           <img src="executive.jpeg" alt="Amazing rooms">
+          <h3>Executive Suite</h3>
+          <p>Separate living space, premium amenities, and panoramic skyline views.</p>
+        </div>
+        <div class="card">
+           <img src="private villa.jpeg" alt="Amazing rooms">
+          <h3>Private Villa</h3>
+          <p>Secluded villa with private pool, garden terrace, and personalized butler.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="amenities" class="section bg-light">
+      <div class="container grid amenities-grid">
+        <div class="amenity">
+          <span class="icon">🍴</span>
+          <h4>Gourmet Dining</h4>
+          <p>World-class chefs craft seasonal menus in our fine-dining restaurants.</p>
+        </div>
+        <div class="amenity">
+          <span class="icon">💆‍♀️</span>
+          <h4>Spa & Wellness</h4>
+          <p>Rejuvenate with personalized treatments in our serene spa sanctuary.</p>
+        </div>
+        <div class="amenity">
+          <span class="icon">🏊‍♂️</span>
+          <h4>Infinity Pool</h4>
+          <p>Swim above the city skyline in our rooftop infinity pool.</p>
+        </div>
+        <div class="amenity">
+          <span class="icon">🎾</span>
+          <h4>Sports & Fitness</h4>
+          <p>State-of-the-art gym, tennis courts, and personal trainers on demand.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section container">
+      <h2 class="section-title">What Our Guests Say</h2>
+      <div class="grid testimonials-grid">
+        <div class="testimonial">
+          <p>"The attention to detail was extraordinary. We felt pampered every moment."</p>
+          <h5>– Sarah Williams</h5>
+        </div>
+        <div class="testimonial">
+          <p>"Best view I’ve ever experienced. The rooftop pool is a slice of heaven."</p>
+          <h5>– Fatima Yussuf</h5>
+        </div>
+        <div class="testimonial">
+          <p>"Service was impeccable. Can’t wait to return next year!"</p>
+          <h5>– Grace Njoroge</h5>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="section booking-section bg-dark">
+      <div class="container booking-grid">
+        <div class="booking-text">
+          <h2>Ready to Unwind?</h2>
+          <p>Complete the form, and our concierge will organize every detail.</p>
+        </div>
+        <form class="booking-form">
+          <input type="text" placeholder="Full Name" required/>
+          <input type="email" placeholder="Email Address" required/>
+          <input type="date" required/>
+          <select required>
+            <option value="" disabled selected>Room Type</option>
+            <option>Deluxe Room</option>
+            <option>Executive Suite</option>
+            <option>Private Villa</option>
+          </select>
+          <button type="submit" class="btn-primary">Confirm Booking</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 VibeLoft Hotel. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.querySelector('.nav-menu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
